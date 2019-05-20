@@ -15,7 +15,7 @@ const forecast = (latitude, longitude, callback) => {
       callback(body.error, undefined)
     } else {
       const { currently, daily } = body
-      callback(undefined, `${daily.data[0].summary} Il fait actuellement ${currently.temperature}°C. Il y a un risque de précipitations de ${currently.precipProbability}%.`)
+      callback(undefined, `${daily.data[0].summary} Il fait actuellement ${currently.temperature}°C. La maximale aujourd'hui est: ${body.daily.data[0].temperatureHigh}°C et la minimale: ${body.daily.data[0].temperatureLow}°C. Il y a un risque de précipitations de ${currently.precipProbability}%.`)
     }
   })
 }
